@@ -1,0 +1,32 @@
+
+<html>
+<head>
+  <title>NGC</title>
+</head>
+<body>
+
+<script type='text/javascript'>
+  function initAgentforceMessaging() {
+    try {
+      agentforce_messaging.settings.language = 'en_US';
+      agentforce_messaging.settings.devMode = true;
+
+      agentforce_messaging.init(
+        '00DSG00000OwHic',
+        'ngc1',
+        'https://orgfarm-65b08848f5.test1.my.pc-rnd.site.com/ESWngc11746028942935',
+        {
+          scrt2URL: 'https://orgfarm-65b08848f5.test1.my.pc-rnd.salesforce-scrt.com'
+        }
+      );
+    } catch (err) {
+      console.error('Error loading agentforce messaging: ', err);
+    }
+  };
+</script>
+<script type='text/javascript' 
+  src='https://orgfarm-65b08848f5.test1.my.pc-rnd.site.com/ESWngc11746028942935/assets/js/init.js' 
+  onload='initAgentforceMessaging()'></script>
+
+</body>
+</html>
