@@ -603,7 +603,7 @@
 
             link.id = "css";
             link.class = "css";
-            link.href = baseURL + "/assets/styles/init.css";
+            link.href = "https://derek665.github.io/ngc/init.css";
             // + (agentforce_messaging.settings.devMode ? "" : ".min") + ".css";
             link.type = "text/css";
             link.rel = "stylesheet";
