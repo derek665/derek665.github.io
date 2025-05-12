@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>sdb3 asa</title>
-<!--   <script type="text/javascript" 
+  <script type="text/javascript" 
 	id="init-agentforce-messaging" 
 	src="https://derek665.github.io/ngc/init.js" 
 	onload='agentforce_messaging.init(
@@ -9,30 +9,7 @@
 		"https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.salesforce.com", 
 		"https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.site.com/NGC1"
 	)'>
-</script> -->
-
-<script type='text/javascript'>
-  function initAgentforceMessaging() {
-    try {
-      agentforce_messaging.settings.language = 'en_US';
-      agentforce_messaging.settings.devMode = true;
-
-      agentforce_messaging.init(
-        '00DSB00000QWoPJ',
-        'NGC1',
-        'https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.site.com/NGC1',
-        {
-          scrt2URL: 'https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.salesforce-scrt.com'
-        }
-      );
-    } catch (err) {
-      console.error('Error loading agentforce messaging: ', err);
-    }
-  };
 </script>
-<script type='text/javascript' 
-  src='https://derek665.github.io/ngc/init.js' 
-  onload='initAgentforceMessaging()'></script>
 
 </body>
 </html>
