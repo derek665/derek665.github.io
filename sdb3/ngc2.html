@@ -1,22 +1,28 @@
-
 <html>
 <head>
-  <title>sdb3 asa</title>
+  <title>sdb3 asa using test-service.force.com</title>
 </head>
 <body>
-<script type="text/javascript" 
-             id='init-agentforce-messaging' 
-             src='https://orgfarm-bd480ef8e8.test1.my.pc-rnd.salesforce.com/embeddedservice/agentforcemessaging/0.3/init.js' 
-             onload='agentforce_messaging.init({
-                    "siteUrl": "https://orgfarm-bd480ef8e8.test1.my.pc-rnd.site.com/NGC1",
-                    "agentApiConfiguration": {
-                            "agentId":"0XxSB000000aDl70AE", 
-                            "domainUrl":"https://orgfarm-bd480ef8e8.test1.my.pc-rnd.salesforce.com",
-                            "endpoint": "https://test.api.salesforce.com/einstein/ai-agent/v1/agents/{AGENT_ID}/sessions",
-                            "authTokenEndpoint": "https://orgfarm-bd480ef8e8.test1.my.pc-rnd.site.com/NGC1/agentforce/bootstrap?agentid=0XxSB000000aDl70AE"
-                    },
-                    "uiConfiguration": {}
-            });'>
+ <script type="text/javascript" 
+	id="init-agentforce-messaging" 
+	src="https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js" 
+	onload='agentforce_messaging.init({
+		devMode: true,
+		siteUrl: "https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.site.com/NGC4",
+		agentApiConfiguration: {
+	            agentId: "0XxSB000000Y5bZ0AS",
+	            domainUrl: "https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.salesforce.com",
+	            authTokenEndpoint: "https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.site.com/NGC2/agentforce/bootstrap?agentid=0XxSB000000Y5bZ0AS",
+		          endpoint: "https://test.api.salesforce.com/einstein/ai-agent/v1/agents/{AGENT_ID}/sessions",
+	            // apiKey: "3a823d29-d8e4-484b-9f72-39568755a28a",
+	            // tenantId: "core/falcontest1-core4sdb3/00DSB00000QWoPJ2A1",
+	            // region: "us-west-2",
+	            voiceEndpoint: "https://test.api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+	        },
+		uiConfiguration: {
+		  },
+		
+	});'>
 </script>
 
 </body>
