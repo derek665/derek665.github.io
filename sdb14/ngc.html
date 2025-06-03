@@ -4,28 +4,18 @@
 </head>
 <body>
 
-<script type='text/javascript'>
-  function initAgentforceMessaging() {
-    try {
-      agentforce_messaging.settings.language = 'en_US';
-      agentforce_messaging.settings.devMode = true;
-
-      agentforce_messaging.init(
-        '00DRZ000003Bcpp',
-        'NGC1',
-        'https://orgfarm-d05034b6bb.test2.my.pc-rnd.site.com/ESWNGC11746764407823',
-        {
-            scrt2URL: 'https://orgfarm-d05034b6bb.test2.my.pc-rnd.salesforce-scrt.com'
-        }
-      );
-    } catch (err) {
-      console.error('Error loading agentforce messaging: ', err);
-    }
-  };
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "<INSERT_SITE_DOMAIN_URL_HERE>",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxRZ00000052Nl0AI", 
+                            "domainUrl":"https://orgfarm-d05034b6bb.test2.my.pc-rnd.salesforce.com"
+                    },
+                    "uiConfiguration": {}
+            });'>
 </script>
-<script type='text/javascript' 
-  src='https://derek665.github.io/ngc/init.js' 
-  onload='initAgentforceMessaging()'></script>
 
 </body>
 </html>
