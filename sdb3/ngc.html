@@ -19,15 +19,19 @@
 	            // region: "us-west-2",
 	            voiceEndpoint: "https://test.api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
 	        },
-		uiConfiguration: {
-		    components: {
-		      chatHeader: {
-		        agentName: "Brian Griffin",
-		        backgroundColor: "#00A1E0",
-		        textColor: "#FFFFFF",
-		      },
-		    },
-		  },
+		"uiConfiguration": {
+                      components: {
+                        chatFab: {
+                          iconUrl: "https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/chat-bubble.svg",
+                        },
+                        chatMessage: {
+                          agent: {
+                            iconUrl:
+                              "https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/agent-icon.svg",
+                          },
+                        },
+                      },
+	    	}	
 		
 	});'>
 </script>
