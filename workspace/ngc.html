@@ -1,52 +1,39 @@
-
 <html>
-<head>
-  <title>Workspace NGC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<meta name="referrer" content="origin" />
 <body>
-
-<style>
-  body {
-    background: url("https://esw1234.github.io/ElectraHome.png") no-repeat;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-</style>
-
-
-<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			agentforce_messaging.settings.devMode = true;
-
-			agentforce_messaging.init(
-				'00DSB0000005YCL',
-        			'webMessagingBot02',
-				'https://orgfarm-04a27a6fc1.my.site-com.chakngai-chan-jtotdkflo7eh1.wa.crm.dev:6101/ESWngc11741989503383',
-				{
-					scrt2URL: 'https://esw-sdb3-blitz.test1.my.pc-rnd.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-
-	// function loadMIAW() {
-	//  	let script = document.createElement("script");
-	//  	script.src = 'https://derekeswsdb6.demo.test1.my.pc-rnd.site.com/ESWMIAW11716925767745/assets/js/bootstrap.js';
-	//  	script.type = 'text/javascript';
-	//  	script.onload = function () {
-	//  		initEmbeddedMessaging();
-	//  	}
-	//  	document.body.appendChild(script);
-	//  }
+ <script type="text/javascript" 
+	id="init-agentforce-messaging" 
+	src="https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.salesforce.com/embeddedservice/agentforcemessaging/0.3/init.js" 
+	onload='agentforce_messaging.init({
+		devMode: true,
+		siteUrl: "https://orgfarm-de01f6c755.my.site-com.vfyayehq0ras0h8uv7et35h010n.wb.crm.dev:6101/test",
+		agentApiConfiguration: {
+	            agentId: "0XxSB000000Y5bZ0AS",
+	            domainUrl: "https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.salesforce.com",
+	            authTokenEndpoint: "https://orgfarm-bbbcbedf9d.test1.my.pc-rnd.site.com/NGC2/agentforce/bootstrap?agentid=0XxSB000000Y5bZ0AS",
+		    endpoint: "https://test.api.salesforce.com/einstein/ai-agent/v1/agents/{AGENT_ID}/sessions",
+	            // apiKey: "3a823d29-d8e4-484b-9f72-39568755a28a",
+	            // tenantId: "core/falcontest1-core4sdb3/00DSB00000QWoPJ2A1",
+	            // region: "us-west-2",
+	            voiceEndpoint: "https://test.api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+	        },
+		"uiConfiguration": {
+                      components: {
+                        chatFab: {
+                          iconUrl: "https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/chat-bubble.svg",
+                        },
+                        chatMessage: {
+                          agent: {
+                            	iconUrl:
+                              		"https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/agent-icon.svg",
+			   	agentName: "Brian Griffin",
+		        	backgroundColor: "#00A1E0",
+                          },
+                        },
+                      },
+	    	}	
+		
+	});'>
 </script>
-<script type='text/javascript' src='https://orgfarm-04a27a6fc1.my.site-com.chakngai-chan-jtotdkflo7eh1.wa.crm.dev:6101/ESWngc11741989503383/assets/js/init.js' onload='initEmbeddedMessaging()'></script>
-<!-- <button type="button" onclick='loadMIAW()'>Load MIAW</button> -->
 
 </body>
 </html>
