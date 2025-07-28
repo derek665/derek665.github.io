@@ -11,33 +11,23 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			embeddedservice_bootstrap.settings.devMode = true;
 
 			embeddedservice_bootstrap.init(
-				'00DSG000007vf49',
-				'MIAW1',
-				'https://orgfarm-60b94fa482.my.site-com.chakngai-chan-atc50izdfkw81.wc.crm.dev:6101/ESWmiaw11739561870981',
+				'00DSG00000W0rl3',
+				'miaw1',
+				'https://orgfarm-c826a245a2.my.site-com.4o4m9w76oahb1menrgqfrbd5.wc.crm.dev:6101/ESWmiaw1753721247964',
 				{
-					scrt2URL: 'https://derekeswsdb6.demo.test1.my.pc-rnd.salesforce-scrt.com'
+					scrt2URL: 'https://orgfarm-956039ea4e.test1.my.pc-rnd.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-
-	// function loadMIAW() {
-	//  	let script = document.createElement("script");
-	//  	script.src = 'https://derekeswsdb6.demo.test1.my.pc-rnd.site.com/ESWMIAW11716925767745/assets/js/bootstrap.js';
-	//  	script.type = 'text/javascript';
-	//  	script.onload = function () {
-	//  		initEmbeddedMessaging();
-	//  	}
-	//  	document.body.appendChild(script);
-	//  }
 </script>
-<script type='text/javascript' src='https://orgfarm-60b94fa482.my.site-com.chakngai-chan-atc50izdfkw81.wc.crm.dev:6101/ESWmiaw11739561870981/assets/js/bootstrap.js' onload='initEmbeddedMessaging()'></script>
-<!-- <button type="button" onclick='loadMIAW()'>Load MIAW</button> -->
+<script type='text/javascript' src='https://orgfarm-c826a245a2.my.site-com.4o4m9w76oahb1menrgqfrbd5.wc.crm.dev:6101/ESWmiaw1753721247964/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+			
 
 </body>
 </html>
