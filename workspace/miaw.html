@@ -1,23 +1,21 @@
 <html>
 <head>
-  <title>Workspace miaw1</title>
+  <title>cwc workspace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<meta name="referrer" content="origin" />
 <body>
 
-<h1>Workspace MIAW </h1>
-
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
+	function initAgentforceMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.init(
+			agentforce_messaging.init(
 				'00DSG00000W0rl3',
 				'miaw1',
 				'https://orgfarm-d0c169a51f.my.site-com.h4xspjzqmljo1po5cgme06irt1uy.wb.crm.dev:6101/ESWcwc21754518277467',
 				{
-					scrt2URL: 'https://orgfarm-956039ea4e.test1.my.pc-rnd.salesforce-scrt.com'
+					scrt2URL: 'http://orgfarm-d0c169a51f.my.salesforce-scrt-com.h4xspjzqmljo1po5cgme06irt1uy.wb.crm.dev'
 				}
 			);
 		} catch (err) {
@@ -25,7 +23,7 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-d0c169a51f.my.site-com.h4xspjzqmljo1po5cgme06irt1uy.wb.crm.dev:6101/ESWcwc21754518277467/assets/js/bootstrap.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-d0c169a51f.my.site-com.h4xspjzqmljo1po5cgme06irt1uy.wb.crm.dev:6101/ESWcwc21754518277467/assets/js/init.js' onload='initAgentforceMessaging()'></script>
 
 			
 
