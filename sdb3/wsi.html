@@ -57,10 +57,12 @@ body {
 <script type="text/javascript">
 window.addEventListener("onEmbeddedMessagingWindowMaximized", (event) => {
   document.querySelector(".custom-fab").style.display = "none";
+  document.body.classList.add("embeddedMessagingPreventScrolling");
 });
 
 window.addEventListener("onEmbeddedMessagingWindowMinimized", (event) => {
   document.querySelector(".custom-fab").style.display = "block";
+  document.body.classList.remove("embeddedMessagingPreventScrolling");
 });
 
   
