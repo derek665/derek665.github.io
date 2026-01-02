@@ -15,6 +15,9 @@
 			embeddedservice_bootstrap.settings.devMode = true;
 			// embeddedservice_bootstrap.settings.displayMode = 'inline';
 			// embeddedservice_bootstrap.settings.targetElement = document.querySelector('.cwc-container');
+			window.addEventListener("onEmbeddedMessagingBusinessHoursStarted", () => console.log('onEmbeddedMessagingBusinessHoursStarted'))
+            window.addEventListener("onEmbeddedMessagingBusinessHoursEnded", () => console.log('onEmbeddedMessagingBusinessHoursEnded'))
+            window.addEventListener("onEmbeddedMessagingWithinBusinessHours", () => console.log('onEmbeddedMessagingWithinBusinessHours'))
 
 			embeddedservice_bootstrap.init(
 				'00DSB00000ZG2o5',
