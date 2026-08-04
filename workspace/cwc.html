@@ -13,18 +13,13 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
 			embeddedservice_bootstrap.settings.devMode = true;
-			// embeddedservice_bootstrap.settings.displayMode = 'inline';
-			// embeddedservice_bootstrap.settings.targetElement = document.querySelector('.cwc-container');
-			window.addEventListener("onEmbeddedMessagingBusinessHoursStarted", () => console.log('onEmbeddedMessagingBusinessHoursStarted'))
-            window.addEventListener("onEmbeddedMessagingBusinessHoursEnded", () => console.log('onEmbeddedMessagingBusinessHoursEnded'))
-            window.addEventListener("onEmbeddedMessagingWithinBusinessHours", () => console.log('onEmbeddedMessagingWithinBusinessHours'))
 
 			embeddedservice_bootstrap.init(
-				'00DSB00000da1NJ',
-         		'CWC01_External',
-				'https://orgfarm-255b0c085c.my.site-com.7pbt8jrl3xyi0ia5pkrw6753g1dp7.wb.crm.dev:6101/ESWcwc11784760996337',
+				'00DSB00000ZG2o5',
+         		'cwc1',
+				'https://orgfarm-9e679d058e.my.site-com.c7ymwtsjrocl0rwehuavsi.wc.crm.dev:6101/ESWcwc11785874314615',
 				{
-            		scrt2URL: 'https://orgfarm-46c4c41fb0.test1.my.pc-rnd.salesforce-scrt.com'
+            		scrt2URL: 'https://orgfarm-b4dcf4edbf.test1.my.pc-rnd.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
@@ -33,7 +28,7 @@
 	};
 </script>
 
-<script type='text/javascript' src='https://orgfarm-255b0c085c.my.site-com.7pbt8jrl3xyi0ia5pkrw6753g1dp7.wb.crm.dev:6101/ESWcwc11784760996337/assets/js/bootstrap.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-9e679d058e.my.site-com.c7ymwtsjrocl0rwehuavsi.wc.crm.dev:6101/ESWcwc11785874314615/assets/js/bootstrap.js' onload='initEmbeddedMessaging()'></script>
 
 	
 
