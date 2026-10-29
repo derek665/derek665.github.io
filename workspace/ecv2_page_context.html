@@ -1,0 +1,160 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Acme Trail Shoe X1 | Page Context Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="description" content="Lightweight trail running shoe for testing page context">
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    .panel { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; }
+    .sr-hidden { display: none; }
+    #controls button { margin: 0 .5rem .5rem 0; }
+  </style>
+</head>
+<body>
+
+<!-- <div class="cwc-container" style="height:800px;width:800px;position:relative"></div> -->
+  <!-- Outside <main>: not scraped (the root is the first visible <main>) -->
+  <header><p>SITE HEADER – should NOT appear</p></header>
+
+  <!-- Cookie banner: always excluded -->
+  <div id="onetrust-consent-sdk"><p>COOKIE BANNER – should NOT appear</p></div>
+
+  <!-- Hidden <main> first: must be skipped in favor of the visible one -->
+  <main style="display:none"><p>HIDDEN MAIN – should NOT appear</p></main>
+
+  <main id="content">
+    <nav aria-label="Breadcrumb"><ol><li>Home</li><li>Running</li><li>Trail Shoes</li></ol></nav>
+
+    <h1 id="title">Acme Trail Shoe X1</h1>
+    <p>Price: <b id="price">$129.99</b> · <span id="stock">In stock</span></p>
+    <img src="shoe.png" alt="Side view of the X1 shoe">
+    <p>Questions? Email <a href="mailto:support@example.com">support@example.com</a>
+       or call +1 (555) 123-4567. <!-- Expected: [email] and [number] --></p>
+
+    <h2>Specs</h2>
+    <!-- No header row: should still become a markdown table -->
+    <table>
+      <tr><td>Size</td><td>9</td></tr>
+      <tr><td>Weight</td><td>280g</td></tr>
+      <tr><td>Drop</td><td>6mm</td></tr>
+    </table>
+
+    <h2>Features</h2>
+    <ul><li>Grippy outsole</li><li>Breathable mesh</li></ul>
+    <ol start="3"><li>Step three</li><li>Step four</li></ol>
+
+    <pre>npm install acme-shoe</pre>
+
+    <!-- Link with block content: flattened to one line of text, no URL -->
+    <a href="/products/x2?session=abc"><h3>Related: Acme X2</h3><p>$99</p></a>
+  
+  
+   <!-- Hidden content: all should NOT appear -->
+    <p hidden>HIDDEN ATTR – should NOT appear</p>
+    <p class="sr-hidden">DISPLAY NONE – should NOT appear</p>
+    <p style="visibility:hidden">VISIBILITY HIDDEN – should NOT appear</p>
+    <p style="opacity:0">OPACITY ZERO – should NOT appear</p>
+    <p aria-hidden="true">ARIA HIDDEN – should NOT appear</p>
+    <div contenteditable="true">EDITABLE DRAFT – should NOT appear</div>
+    <details><summary>Shipping FAQ (question should appear)</summary>
+      <p>FAQ ANSWER IN CLOSED DETAILS – should NOT appear</p></details>
+
+    <!-- Form: labels appear (except password and card), values never appear -->
+    <form class="panel">
+      <label for="name">Full name</label> <input id="name" value="TYPED_NAME_SECRET">
+      <label for="pw">Password label – should NOT appear</label>
+      <input id="pw" type="password" value="TYPED_PASSWORD_SECRET">
+      <label>Card label – should NOT appear
+        <input autocomplete="cc-number" value="4111111111111111"></label>
+      <textarea>TYPED_NOTES_SECRET</textarea>
+      <select><option selected>SELECTED_OPTION_SECRET</option></select>
+    </form>
+
+    <!-- Shadow DOM with slots: should appear in render order -->
+    <x-card>
+      <span slot="title">Slotted card title</span>
+      <p>Slotted default content</p>
+    </x-card>
+
+    <!-- Our own UI is excluded by reference; this id mimics it -->
+    <div id="embedded-messaging"><p>OUR CHAT UI – should NOT appear</p></div>
+
+    <div id="dynamic" class="panel"><p>Dynamic area</p></div>
+  </main>
+
+  <footer><p>SITE FOOTER – should NOT appear</p></footer>
+
+  <div id="controls" class="panel">
+    <strong>Test triggers (open a conversation first):</strong><br>
+    <!-- Structural change → re-scrape after the cooldown -->
+    <button onclick="addParagraph()">Add paragraph (structural change)</button>
+    <!-- Text-only change → NOT observed, no re-scrape -->
+    <button onclick="changePriceText()">Change price text only</button>
+    <!-- SPA navigation → re-scrape, new pageUrl (query dropped) -->
+    <button onclick="spaNavigate()">SPA navigate (pushState)</button>
+    <!-- Hash-router route → kept in pageUrl -->
+    <button onclick="location.hash = '#/orders/123'">Hash route</button>
+    <!-- Burst: many changes → one scrape now, one trailing scrape after the cooldown -->
+    <button onclick="burst()">Burst of 20 changes</button>
+  </div>
+
+   <script>
+    // Open shadow root with slots and fallback content.
+    customElements.define('x-card', class extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' }).innerHTML =
+          '<h3><slot name="title"></slot></h3><p>Shadow text</p><slot></slot>' +
+          '<slot name="missing"><p>Slot fallback content</p></slot>';
+      }
+    });
+
+    let n = 0;
+    function addParagraph() {
+      const p = document.createElement('p');
+      p.textContent = 'Added paragraph ' + (++n) + ' at ' + new Date().toLocaleTimeString();
+      document.getElementById('dynamic').appendChild(p);
+    }
+    function changePriceText() {
+      document.getElementById('price').firstChild.nodeValue = '$' + (100 + ++n) + '.00';
+    }
+    function spaNavigate() {
+      history.pushState({}, '', '/products/acme-x2?utm_source=test&token=abc');
+      document.getElementById('title').replaceWith(Object.assign(document.createElement('h1'),
+        { id: 'title', textContent: 'Acme Trail Shoe X2 (SPA route)' }));
+      document.title = 'Acme Trail Shoe X2 | Page Context Test';
+    }
+    function burst() {
+      for (let i = 0; i < 20; i++) setTimeout(addParagraph, i * 50);
+    }
+  </script>
+
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.devMode = true;
+      embeddedservice_bootstrap.settings.enablePageContext = true;
+
+			embeddedservice_bootstrap.init(
+				'00DSG00000iZDYv',
+         		'CWC3',
+				'https://orgfarm-0ccc9c8ec6.my.site-com.x553g59bck0y1qgxm4rbu6.wa.crm.dev:6101/ESWEnhancedChat1793227130502',
+				{
+            		scrt2URL: 'https://orgfarm-f1f503ecb7.test1.my.pc-rnd.salesforce-scrt.com'
+					// scrt2URL: 'https://orgfarm-b4dcf4edbf.test1.my.pc-rnd.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+
+<script type='text/javascript' src='https://orgfarm-0ccc9c8ec6.my.site-com.x553g59bck0y1qgxm4rbu6.wa.crm.dev:6101/ESWEnhancedChat1793227130502/assets/js/bootstrap.js' onload='initEmbeddedMessaging()'></script>
+
+	
+
+</body>
+</html>
